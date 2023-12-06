@@ -5,31 +5,34 @@ using namespace std;
 int main() {
 	setlocale(LC_ALL, "RU");
 	int n, m;
-	int count = 0;
 	double sum = 0.0;
 	cout << "¬ведите количество столбцов: ";
 	cin >> n;
 	cout << "¬ведите количество строк: ";
 	cin >> m;
-	int *a = new int[m*n];
 	double* sred = new double[n];
 	int* chicla = new int[n];
+	int* a = new int[m];
+	int** a2 = new int* [n];
+	for (int i = 0; i < n; i++) {
+		a2[i] = new int[m];
+	}
 	for (int i = 0; i < m; i++) {
 		for (int j = 0; j < n; j++) {
 			cout << "¬ведите элемент массива: ";
-			cin >> a[i*n+j];
+			cin >> a2[i][j];
 		}
 	}
 	for (int i = 0; i < m; i++) {
 		for (int j = 0; j < n; j++) {
-			sum += a[i*n+j];
+			sum += a2[i][j];
 		}
-		sred[i] = ((sum / 1.0) / n);
-		sum = 0;
+		sred[i] = (sum / n);
+		sum = 0.0;
 	}
-	for (int i = 0; i < m; i++) {
+	for (int i = 0, count = 0; i < m; i++) {
 		for (int j = 0; j < n; j++) {
-			if (a[i*n+j] < sred[i]) {
+			if (a2[i][j] < sred[i]) {
 				count += 1;
 			}
 		}

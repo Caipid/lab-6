@@ -6,13 +6,10 @@ int main() {
 	setlocale(LC_ALL, "RU");
 	const int M = 10; // строки
 	const int N = 10; // столбы
-	const int H = 10;
-	const int G = 10;
 	int a[M][N];
-	double sred[H];
-	int chicla[G];
+	double sred[M];
+	int chicla[M];
 	int n, m;
-	int count = 0;
 	double sum = 0.0;
 	cout << "¬ведите количество столбцов: ";
 	cin >> n;
@@ -31,10 +28,10 @@ int main() {
 		for (int j = 0; j < n; j++) {
 			sum += a[i][j];
 		}
-		sred[i] = ((sum /1.0) / n);
+		sred[i] = (sum / n);
 		sum = 0.0;
 	}
-	for (int i = 0; i < m; i++) {
+	for (int i = 0,count = 0; i < m; i++) {
 		for (int j = 0; j < n; j++) {
 			if (a[i][j] < sred[i]) {
 				count += 1;

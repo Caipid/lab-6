@@ -8,21 +8,25 @@ int main() {
 	int m;
 	cout << "¬ведите размер квадратной матрицы ";
 	cin >> m;
-	int* a = new int[m * m];
+	int* a = new int[m];
+	int** a2 = new int* [m];
+	for (int i = 0; i < m; i++) {
+		a2[i] = new int [m];
+	}
 	for (int i = 0; i < m; i++) {
 		for (int j = 0; j < m; j++) {
 			cout << "¬ведите элемент матрицы " << i + 1 << " " << j + 1;
-			cin >> a[i*m+j];
+			cin >> a2[i][j];
 		}
 	}
 	for (int i = 0; i < m; i++) {
 		for (int j = i; j < m; j++) {
-			a[i * m + j] = 0;
+			a2[i][j] = 0;
 		}
 	}	
 	for (int i = 0; i < m; i++) {
 		for (int j = 0; j < m; j++) {
-			cout << a[i*m+j] << "";
+			cout << a2[i][j] << " ";
 		}
 		cout << endl;
 	}
